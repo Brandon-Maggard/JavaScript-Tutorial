@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!--
+                GIT 417: Totorial Final Assignment
+                Author: Brandon Maggard
+                Date: 1 Mar 2022
+            -->
+        <title>JS Totorial</title>
+        <!-- These 2 lines of code get the highlight js code library from a cloud content distribution network (CDN) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/languages/javascript.min.js"></script>
+        <!-- In order to add html code examples this line needs to be in the head tag -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/languages/xml.min.js"></script>
+        <!-- This line is needed for the default CSS style -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.5/styles/default.min.css">
+        <!-- End of hightlight JS code library CDN declarations Everything after this is your design and tutorial-->
+        <link rel="stylesheet" href="styles.css">
+        <meta name="author" content="Brandon Maggard">
+        <meta name="description" content="This is a short totorial on how to add html elements to a blank website using an array, a for loop, create element statement, and appned child statement using javascript.">
+    </head>
+    <body>
+        <h1>JS Example Of How To Add HTML Elements to a Page</h1>
+        <!-- Spans used to make circle in css and to change the background color for just the heading -->
+        <!-- Getting the reader ready for the exercise -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">The Setup</span></h2>
+        <!-- Wrapper was created to make the background color the same with no gaps  -->
+        <div class="wrapper">
+            <p>For this totorial, we are going to start with a blank html file with a &lt;ul&gt; tag in the body.</p>
+            <pre>
+                <code class="html">
+                    &lt;!doctype html&gt;
+                    &lt;html&gt;
+                        &lt;body&gt;
+                            &lt;ul&gt;
+                            &lt;/ul&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+            <p>After your document is created, go ahead and assign an id to your &lt;ul&gt;... I will be giving it an id of "shopping".</p>
+        </div>
+        <!-- Having the reader create a script tag/array within the html document and explaining what an array is-->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Creating The Script Tag/Array</span></h2>
+        <div class="wrapper">
+            <p>Just underneath your closing &lt;ul&gt; tag, add a opening and closing &lt;script&gt;. The first thing we are going to do in our script is create an array. An array is like a database or a bank of values under one name, or in other words we can set a variable but allow it to have multiple values. In this example we are going to have our variable be named fruit, and the value of fruit is going to be: Apples, Oranges, Bananas, Strawberries, Cherries, Blueberries, and Watermelons.</p>
+            <p>In your text editor inbetween your opening and closing &lt;script&gt; you are going to add:</p>
+            <pre>
+                <code class="javascript">
+                    &lt;script&gt;
+                        var fruit = [&quot;Apples&quot;, &quot;Oranges&quot;, &quot;Bananas&quot;, &quot;Strawberries&quot;, &quot;Cherries&quot;, &quot;Blueberries&quot;, &quot;Watermelons&quot;];
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <p>One thing to note about arrays is that, the counter of an array always starts at 0.  So "Apples" would be an array index of 0, "Oranges" would be an array index of 1, and so on and so forth. This is important to remember for later.</p>
+        </div>
+
+        <!-- Starting to create the function -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Creating The Function</span></h2>
+        <div class="wrapper">
+            <p>The next thing we have to do is create and name our function.  In this case I am going to call it createList since our goal is to add &lt;li&gt; to our &lt;ul&gt;.</p>
+            <p>Just under the array you just made, input:</p>
+            <pre>
+                <code class="javascript">
+                    function createList() {
+                    
+                    }
+                
+                </code>
+            </pre>
+        </div>
+
+        <!-- Creating the for loop and how it works -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Creating Our For Loop</span></h2>
+        <div class="wrapper">
+            <p>To make things easy on us so that we aren't manual inputting all of these &lt;li&gt; one by one, and to be able to reuse this code in other scenarios (you would have to change some variable names) we are going to use a for loop.</p>
+            <p>Inside the curly braces of your function you are going to add:</p>
+            <pre>
+                <code class="javascript">
+                    for(i = 0; i &lt; fruit.length; i++) {
+
+                    }
+                </code>
+            </pre>
+            <p>Let's break down what this loop is telling us.  Starting with the i = 0;, the variable i is common practice to stand for iteration and is saying that we want to set our initial counter to 0. This is important because when we pull in our fruit array we want it to start with "Apples", like we dicsussed up above. The i &lt; fruit.length; is our condition. While this condition is true it is going to continue to extecute the code that we put in next until it is not true or false. In this case as long as our counter(i) is smaller than the length of our fruit array, this will continue to execute. Finally, i++. What this is telling the loop to do is to add 1 to i after the last line of code has been run within the curly braces({}) of the for loop. </p>
+        </div>
+
+        <!-- Creating the variables within the function  -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Setting Variables For Our Loop</span></h2>
+        <div class="wrapper">
+            <p>The first thing we are going to do, is within our for loop is add two variables.</p>
+            <p>Inside the curly braces of your for loop you are going to add:</p>
+            <pre>
+                <code class="javascript">
+                    for(i = 0; i &lt; fruit.length; i++) {
+                        var list = document.getElementById("shopping");
+                        var item = document.createElement("li");
+                    }
+                </code>
+            </pre>
+            <p>Our first variable is list and set it to be the id we set earlier of shopping which is attached to our &lt;ul&gt;. Our second variable is where the magic starts to begin. The variable is item and we are creating the &lt;li&gt; that will be displayed; however, although we created it, it has yet to be attached to anything and it has no content, so it will not appear on screen. </p>
+        </div>
+
+        <!-- Adding the statements that will create the <li> and attach them to the <ul> -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Adding Content and Attaching them To The List</span></h2>
+        <div class="wrapper">
+            <p>With our &lt;li&gt; created, we now have to fill them with content and attach them to our list.</p>
+            <p>Just after the two variables that you just created, still within the curly braces({}) add:</p>
+            <pre>
+                <code class="javascript">
+                    item.innerHTML = fruit[i];
+                    list.appendChild(item);
+                </code>
+            </pre>
+            <p>Starting with the first line, we are setting the content inside the &lt;li&gt;, which in our case is our fruit variable. The brackets([]) beside the fruit variable is telling it to grab the value equal to i. So, because i is starting at 0 the first &lt;li&gt; that will displayed is "Apples". The second time this loop gets run, the &lt;li&gt; will be "Oranges". With the content inputted into the &lt;li&gt;, we still won't see it displayed on the screen. This is because although created and it has content we have not placed it anywhere in the HTML document. This is where the last line comes in. What it is saying, is that I want to add this &lt;li&gt; or item (since that is the variable name that we gave it) to the &lt;ul&gt; with the id of "shopping" or list (also the variable name that we created).</p>
+        </div>
+
+        <!-- Adding the event listener so that the function will work when the page loads  -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Finishing Touches</span></h2>
+        <div class="wrapper">
+            <p>We are almost done, but you have probably noticed that nothing is still showing up on the page. This is because right now we have a function that will execute, but hasn't because it hasn't been called to execute. So we have to create an event listener for that to happen.</p>
+            <p>For you last line of code, you want to add it right after the last curly braces of your function, but still within the &lt;script&gt; as follows:</p>
+            <pre>
+                <code class="javascript">
+                    window.addEventListener("load", createList, false);
+                </code>
+            </pre>
+            <p>What this is doing is that, when the window loads it wants it to execute the function we created or createList.</p>
+        </div>
+
+        <!-- Showing the entire code to make sure that the reader inputs it correctly  -->
+        <h2><span class="red"></span><span class="yellow"></span><span class="green"></span><span class="tab">Finished Product</span></h2>
+        <div class="wrapper">
+            <p>Your final should look like this:</p>
+            <pre>
+                <code class="html javascript">
+                    &lt;!doctype html&gt;
+                    &lt;html&gt;
+                        &lt;body&gt;
+                            &lt;ul id=&quot;shopping&quot;&gt;&lt;/ul&gt;
+                            &lt;script&gt;
+                                var fruit = [&quot;Apples&quot;, &quot;Oranges&quot;, &quot;Bananas&quot;, &quot;Strawberries&quot;, &quot;Cherries&quot;, &quot;Blueberries&quot;, &quot;Watermelons&quot;];
+                                function createList() {
+                                        for(i = 0; i &lt; fruit.length; i++) {
+                                                var list = document.getElementById(&quot;shopping&quot;);
+                                                var item = document.createElement(&quot;li&quot;);
+                                                item.innerHTML = fruit[i];
+                                                list.appendChild(item);
+                                        }
+                                }
+                                window.addEventListener("load", createList, false);
+                            &lt;/script&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+        </div>
+        <!-- Showing the reader how it will look on their screen -->
+        <p>This is just one example of how to create elements and input content in them, and you can do that to any elements and create your own arrays to input the content that you want, but if you followd my example you should now have the following displayed on your screen:</p>
+        <!-- Blank was made as a secondary wrapper to mimic what the person reading the tutorial would see on their screen after completing it  -->
+        <div class="blank">
+            <!-- Id was created to use later in the script  -->
+            <ul id="shopping"></ul>
+            <script>
+                // creating an array for a variable called fruit 
+                var fruit = ["Apples", "Oranges", "Bananas", "Strawberries", "Cherries", "Blueberries", "Watermelons"];
+                //creating a function called create list which will create my <li> and add my fruit array to it
+                function createList() {
+                    //A for loop that will make the same amount of <li> for as many items that are in my array and input the content from that array index
+                    for(i = 0; i < fruit.length; i++) {
+                        // giving my <ul> id of shopping a variable name of list 
+                        var list = document.getElementById("shopping");
+                        //Creating a variable called item which is creating the <li>
+                        var item = document.createElement("li");
+                        //Inputting the content for the item/<li> that was just created
+                        item.innerHTML = fruit[i];
+                        //Adding the <li> to the <ul>
+                        list.appendChild(item);
+                    }
+                }
+                //To call the function so that function will execute
+                window.addEventListener("load", createList, false);  
+            </script>
+            <!-- Executes the highlight script when the page loads  -->
+            <script>hljs.initHighlightingOnLoad();</script>  
+        </div> 
+    </body>
+</html>
